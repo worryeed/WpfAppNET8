@@ -1,0 +1,61 @@
+﻿<Window x:Class="WpfAppNET8.Views.AddWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAppNET8.Views"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Окно добавления"
+        Height="750" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0"
+                    Orientation="Vertical"
+                    HorizontalAlignment="Left"
+                    Margin="5">
+
+            <TextBlock Text="Наименование:" />
+            <TextBox Name="NameMaterial" />
+
+            <TextBlock Text="Тип материала:" />
+            <ComboBox Name="TypeMaterial" />
+
+            <TextBlock Text="Количество на складе:" />
+            <TextBox Name="CurrentCount" />
+
+            <TextBlock Text="Единица измерения:" />
+            <TextBox Name="Unit" />
+
+            <TextBlock Text="Количество в упаковке:" />
+            <TextBox Name="CountInPack" />
+
+            <TextBlock Text="Минимальное количество:" />
+            <TextBox Name="MinCount" />
+
+            <TextBlock Text="Цена единицы материала:" />
+            <TextBox Name="PriceOfOne" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="1"
+                    Orientation="Horizontal"
+                    Background="#ABCFCE">
+            <Button Content="Добавить"
+                    Click="Add_Click"
+                    Margin="50,0,0,0" />
+
+            <Button Content="Назад"
+                    Click="Back_Click"
+                    Margin="10,0,0,0" />
+
+            <Image Source="C:\Users\KISTO\Desktop\Лахов ИСП-406\Мозаика.png"
+                   Width="80"
+                   Height="80"
+                   Margin="50,0,0,0" />
+        </StackPanel>
+    </Grid>
+</Window>

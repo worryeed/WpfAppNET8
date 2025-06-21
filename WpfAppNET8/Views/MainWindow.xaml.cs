@@ -41,8 +41,8 @@ public partial class MainWindow : Window
     private decimal GetPrice(Material material)
     {
         var countToBuyWithoutCeiling = material.МинимальноеКоличество - material.КоличествоНаСкладе;
-        var countToBuy = Math.Ceiling(countToBuyWithoutCeiling / (decimal)material.КоличествоВУпаковке) * material.ЦенаЕдиницыМатериала;
-        var price = countToBuy * material.КоличествоВУпаковке;
+        var countToBuy = Math.Ceiling(countToBuyWithoutCeiling / (decimal)material.КоличествоВУпаковке) * material.КоличествоВУпаковке;
+        var price = countToBuy * material.ЦенаЕдиницыМатериала;
 
         if (price < 0)
         {

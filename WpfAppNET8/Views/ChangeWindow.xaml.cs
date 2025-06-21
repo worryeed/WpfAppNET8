@@ -32,7 +32,7 @@ public partial class ChangeWindow : Window
         Unit.Text = _material.ЕдиницаИзмерения.ToString();
         CountInPack.Text = _material.КоличествоВУпаковке.ToString();
         MinCount.Text = _material.МинимальноеКоличество.ToString();
-        PriceOfOne.Text = _material.ЦенаЕдиницыМатериала.ToString();
+        PriceOfOne.Text = _material.ЦенаЕдиницыМатериала.ToString("F2");
     }
 
     private void Change_Click(object sender, RoutedEventArgs e)
@@ -41,25 +41,25 @@ public partial class ChangeWindow : Window
         {
             DemoContext demoContext = new DemoContext();
 
-            if (!int.TryParse(CurrentCount.Text, out int currentCount))
+            if (!int.TryParse(CurrentCount.Text, out int currentCount) && currentCount < 0)
             {
                 MessageBox.Show("Введите корректное количество на складе.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
-            if (!int.TryParse(CountInPack.Text, out int countInPack))
+            if (!int.TryParse(CountInPack.Text, out int countInPack) && currentCount < 0)
             {
                 MessageBox.Show("Введите корректное количество в упаковке.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
-            if (!int.TryParse(MinCount.Text, out int minCount))
+            if (!int.TryParse(MinCount.Text, out int minCount) && currentCount < 0)
             {
                 MessageBox.Show("Введите корректное минимальное количество.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
-            if (!decimal.TryParse(PriceOfOne.Text, out decimal price))
+            if (!decimal.TryParse(PriceOfOne.Text, out decimal price) && currentCount < 0)
             {
                 MessageBox.Show("Введите корректную цену.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;

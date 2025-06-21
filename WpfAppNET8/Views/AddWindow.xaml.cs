@@ -36,25 +36,25 @@ public partial class AddWindow : Window
                 return;
             }
 
-            if (!int.TryParse(CurrentCount.Text, out int currentCount))
+            if (!int.TryParse(CurrentCount.Text, out int currentCount) && currentCount < 0)
             {
                 MessageBox.Show("Введите корректное количество на складе.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
-            if (!int.TryParse(CountInPack.Text, out int countInPack))
+            if (!int.TryParse(CountInPack.Text, out int countInPack) && currentCount < 0)
             {
                 MessageBox.Show("Введите корректное количество в упаковке.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
-            if (!int.TryParse(MinCount.Text, out int minCount))
+            if (!int.TryParse(MinCount.Text, out int minCount) && currentCount < 0)
             {
                 MessageBox.Show("Введите корректное минимальное количество.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
-            if (!decimal.TryParse(PriceOfOne.Text, out decimal price))
+            if (!decimal.TryParse(PriceOfOne.Text, out decimal price) && currentCount < 0)
             {
                 MessageBox.Show("Введите корректную цену.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
@@ -72,7 +72,6 @@ public partial class AddWindow : Window
             });
 
             demoContext.SaveChanges();
-
             OpenMainWindow();
         }
         catch
